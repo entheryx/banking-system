@@ -64,6 +64,3 @@ def adminMenu():     #adminmenu
     n=int(input("Choose a menu option using keyboard: "))
     return n
 
-mainMenu()
-userMenu()
-adminMenu()
