@@ -65,4 +65,25 @@ def phnum():
     finally:
         db.close()
 
+def address():
+    """Updates the address of an account holder."""
+    if not db: return
+    cu = db.cursor()
+    try:
+        number = int(input("Enter the account number: "))
+        address = input("Enter the updated address: ")
+        query = "UPDATE accHolder SET address = '{}' WHERE acct_no = {}".format(address, number)
+        cu.execute(query)
+        db.commit()
+        if cu.rowcount > 0:
+            print("Address was updated successfully!")
+        else:
+            print("Account not found or address is the same.")
+    except ValueError:
+        print("Invalid input for account number.")
+    except con.Error as err:
+        print(f"Database error: {err}")
+    finally:
+        db.close()
+
 

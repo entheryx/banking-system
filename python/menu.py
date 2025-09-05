@@ -33,14 +33,14 @@ def userMenu():     #usermenu
 	[4] 	UPDATE NAME
 	[5] 	UPDATE EMAIL
 	[6] 	UPDATE PHONE NUMBER
-	[7] 	TRANSACTION HISTORY
+	[7] 	UPDATE ADDRESS
 	[8] 	LOAN SERVICES (Apply / EMI / Check Status)
 	[9] 	CHANGE PASSWORD / RESET PIN
 	[10] 	CLOSE ACCOUNT
 
 	_____________________________________________
 	
-	[11] 	FEEDBACK
+	[11] 	GIVE FEEDBACK
 	[12] 	CUSTOMER SUPPORT / HELP DESK 
 	[0] 	EXIT
 ''')

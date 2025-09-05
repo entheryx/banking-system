@@ -7,6 +7,7 @@ import dbConnect as con
 import menu
 import user
 import update
+import feedback
 
 choice = menu.mainMenu()  # call it once
 
@@ -24,6 +25,11 @@ if choice == 1:
             update.email()
         case 6:
             update.phnum()
+        case 7:
+            update.address()   
+        case 11:
+            feedback.new()
+             
 
 elif choice == 2:
     menu.adminMenu()
