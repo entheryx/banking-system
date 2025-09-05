@@ -15,5 +15,8 @@
             "username": "root",
             "password": "mypass"
         }
+    ],
+    "python.analysis.extraPaths": [
+        "./python"
     ]
 }

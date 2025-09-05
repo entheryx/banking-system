@@ -8,6 +8,7 @@ import menu
 import user
 import update
 import feedback
+import transactions
 
 choice = menu.mainMenu()  # call it once
 
@@ -18,7 +19,7 @@ if choice == 1:
         case 2:
             pass
         case 3:
-            pass
+            transactions.balance()
         case 4:
             update.name()
         case 5:
