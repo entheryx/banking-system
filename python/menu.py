@@ -32,7 +32,7 @@ def userMenu():     #usermenu
 	[3] 	BALANCE ENQUIRY
 	[4] 	UPDATE NAME
 	[5] 	UPDATE EMAIL
-	[6] 	TRANSACTIONS (Deposit, Withdraw, Transfer)
+	[6] 	UPDATE PHONE NUMBER
 	[7] 	TRANSACTION HISTORY
 	[8] 	LOAN SERVICES (Apply / EMI / Check Status)
 	[9] 	CHANGE PASSWORD / RESET PIN

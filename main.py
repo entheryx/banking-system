@@ -22,6 +22,8 @@ if choice == 1:
             update.name()
         case 5:
             update.email()
+        case 6:
+            update.phnum()
 
 elif choice == 2:
     menu.adminMenu()

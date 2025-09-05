@@ -44,3 +44,25 @@ def email():
     finally:
         db.close()
 
+def phnum():
+    """Updates the phone number of an account holder."""
+    if not db: return
+    cu = db.cursor()
+    try:
+        number = int(input("Enter the account number: "))
+        phone = input("Enter the updated phone number: ")
+        query = "UPDATE accHolder SET phone_no = '{}' WHERE acct_no = {}".format(phone, number)
+        cu.execute(query)
+        db.commit()
+        if cu.rowcount > 0:
+            print("Phone number successfully updated!")
+        else:
+            print("Account not found or phone number is the same.")
+    except ValueError:
+        print("Invalid input for account number.")
+    except con.Error as err:
+        print(f"Database error: {err}")
+    finally:
+        db.close()
+
+
