@@ -1,5 +1,7 @@
 import sys
-sys.path.append(r"X:\banking-system\python")
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).parent / "python"))
 
 import dbConnect as con
 import menu
