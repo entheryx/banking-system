@@ -31,7 +31,7 @@ def userMenu():     #usermenu
 	[2] 	UPDATE LOAN STATUS
 	[3] 	BALANCE ENQUIRY
 	[4] 	UPDATE NAME
-	[5] 	FIXED DEPOSITS & INTEREST CALCULATOR
+	[5] 	UPDATE EMAIL
 	[6] 	TRANSACTIONS (Deposit, Withdraw, Transfer)
 	[7] 	TRANSACTION HISTORY
 	[8] 	LOAN SERVICES (Apply / EMI / Check Status)

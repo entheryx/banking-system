@@ -20,6 +20,8 @@ if choice == 1:
             pass
         case 4:
             update.name()
+        case 5:
+            update.email()
 
 elif choice == 2:
     menu.adminMenu()
