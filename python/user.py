@@ -30,3 +30,34 @@ def viewData():
     finally:
         db.close()
 
+def loanStatus():
+    """Views the loan status for a specific user."""
+    db = con.connect()
+    if not db: return
+    cu = db.cursor()
+    try:
+        number = int(input("Enter your account number: "))
+        query = "SELECT * FROM loan_acct WHERE acct_no = {}".format(number)
+        cu.execute(query)
+        data = cu.fetchone()
+        if data:
+            print("\n*************** LOAN STATUS ***************")
+            print("Account Number:", data[0])
+            print("Account Holder Name:", data[1])
+            print("Loan Taken:", data[2])
+            print("Type of Loan:", data[3])
+            print("Status of Loan:", data[4])
+            print("Months with Interest Unpaid:", data[5])
+            print("*******************************************\n")
+        else:
+            print("No loan information found for this account.")
+    except ValueError:
+        print("Invalid input for account number.")
+    except con.Error as err:
+        print(f"Database error: {err}")
+    finally:
+        db.close()
+        
+    n = int(input("Enter 1 for user menu | 2 for exit: "))
+    if n == 1:
+        user1()
