@@ -19,6 +19,7 @@ def viewData():
             print("Email: ", data[3])
             print("Address: ", data[4])
             print("Initial balance: ", data[5])
+            print("Loan Taken: ", data[6])
             print("*********************************************\n")
         else:
             print("Account not found.")
@@ -29,6 +30,3 @@ def viewData():
     finally:
         db.close()
 
-    
-if (menu.userMenu()==1):
-    viewData()
