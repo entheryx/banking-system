@@ -41,12 +41,14 @@ def userMenu():     #usermenu
     [7] 	UPDATE ADDRESS
     [8] 	LOAN SERVICES (Apply / EMI / Check Status)
     [9] 	CHANGE PASSWORD / RESET PIN
-    [10] 	CLOSE ACCOUNT
+    [10] 	TRANSACTIONS (Deposit, Withdraw, Transfer)
+    [11]    TRANSACTION HISTROY
+    [12]    CLOSE ACCOUNT
 
     _____________________________________________
     
-    [11] 	GIVE FEEDBACK
-    [12] 	CUSTOMER SUPPORT / HELP DESK 
+    [13] 	GIVE FEEDBACK
+    [14] 	CUSTOMER SUPPORT / HELP DESK 
     [0] 	EXIT
 ''')
     

@@ -30,7 +30,11 @@ while (choice==1 or choice==2 or choice==3 or choice==4):
                 update.phnum()
             case 7:
                 update.address()   
+            case 10:
+                transactions.user_transactions()
             case 11:
+                transactions.user_transaction_history()
+            case 13:
                 feedback.new()
             case _:
                 break;
