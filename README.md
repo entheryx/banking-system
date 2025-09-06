@@ -136,8 +136,8 @@ This project serves as a practical demonstration of:
 ## 📞 Contact
 
 For queries, feedback, or contributions:
-- GitHub: [Your GitHub Link]
-- Email: [Your Email Address]
+- GitHub: https://github.com/entheryx
+- GitHub: https://github.com/Aurelyx-19
 
 ---
 
