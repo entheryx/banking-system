@@ -30,7 +30,7 @@ def viewData():
     finally:
         db.close()
 
-def loanStatus():
+def viewLoanStatus():
     """Views the loan status for a specific user."""
     db = con.connect()
     if not db: return
@@ -57,7 +57,3 @@ def loanStatus():
         print(f"Database error: {err}")
     finally:
         db.close()
-        
-    n = int(input("Enter 1 for user menu | 2 for exit: "))
-    if n == 1:
-        user1()

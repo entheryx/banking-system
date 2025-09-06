@@ -33,7 +33,7 @@ def userMenu():     #usermenu
     print(''' 
     ------------------USER MENU--------------------
     [1] 	ACCOUNT HOLDER DETAILS
-    [2] 	UPDATE LOAN STATUS
+    [2] 	VIEW LOAN DETAILS
     [3] 	BALANCE ENQUIRY
     [4] 	UPDATE NAME
     [5] 	UPDATE EMAIL
@@ -62,7 +62,7 @@ def adminMenu():     #adminmenu
     ------------------ADMIN MENU--------------------
     [1]     VIEW ALL ACCOUNT HOLDERS
     [2]     VIEW FEEDBACK
-    [3]     LOAN LENDERS
+    [3]     ADD ACCOUNT HOLDER
     [4]     VIEW ALL TRANSACTIONS (Daily / Monthly Reports)
     [5]     LOAN DEFAULTERS
     [6]     UPDATE ACCOUNT DETAILS
