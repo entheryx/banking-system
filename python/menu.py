@@ -63,7 +63,7 @@ def adminMenu():     #adminmenu
     [1]     VIEW ALL ACCOUNT HOLDERS
     [2]     VIEW FEEDBACK
     [3]     ADD ACCOUNT HOLDER
-    [4]     VIEW ALL TRANSACTIONS (Daily / Monthly Reports)
+    [4]     NEW ADMIN ACCOUNT
     [5]     LOAN DEFAULTERS
     [6]     UPDATE ACCOUNT DETAILS
     [7]     DELETE ACCOUNT (Permanent)

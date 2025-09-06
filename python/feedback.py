@@ -1,11 +1,11 @@
 import dbConnect as con
 import menu
 
-db=con.connect()
 
 def new():
     """Allows a user to give feedback."""
 
+    db=con.connect()
     if not db: return
     cu = db.cursor()
     try:
@@ -22,3 +22,26 @@ def new():
     finally:
         db.close()
     
+def view():
+    """Displays all user feedback."""
+    db=con.connect()
+    if not db: return
+    cu = db.cursor()
+    try:
+        query = "SELECT * FROM feedback"
+        cu.execute(query)
+        data = cu.fetchall()
+        if data:
+            print("\n*************** USER FEEDBACKS ***************")
+            for row in data:
+                print(f"Account Number: {row[0]}")
+                print(f"Feedback: {row[1]}")
+                print("-----------------------------------------")
+            print("**********************************************\n")
+        else:
+            print("No feedback found.")
+    except con.Error as err:
+        print(f"Database error: {err}")
+    finally:
+        db.close()
+

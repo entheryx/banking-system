@@ -44,11 +44,11 @@ while (choice==1 or choice==2 or choice==3 or choice==4):
                 case 1:
                     admin.viewAll()
                 case 2:
-                    pass
+                    feedback.view()
                 case 3:
                     admin.addData()
                 case 4:
-                    pass
+                    admin.newAdmin()
                 case 5:
                     pass
                 case 6:

@@ -2,13 +2,13 @@ import dbConnect as con
 import menu
 import random
 
-db = con.connect()
 
 def auth(): #when the admin username & password is verified
     """Authenticate admin using username and password."""
     username = input("Enter admin username: ")
     password = input("Enter admin password: ")
 
+    db = con.connect()
     if not db:
         return False
     
@@ -33,6 +33,7 @@ def auth(): #when the admin username & password is verified
 
 def addData():
     """Adds a new account holder to the system."""
+    db = con.connect()
     if not db: return
     cu = db.cursor()
     try:
@@ -70,6 +71,36 @@ def viewAll():
             else: 
                 break
     except con.Error as err:
+        print(f"Database error: {err}")
+    finally:
+        db.close()
+
+def newAdmin():
+    """Allows creation of a new admin account."""
+    username = input("Enter new admin username: ")
+    password = input("Enter new admin password: ")
+    
+    db = con.connect()
+    if not db:
+        print("Database connection failed.")
+        return
+
+    cu = db.cursor()
+    try:
+        # Check if username already exists
+        cu.execute("SELECT * FROM admin_data WHERE username = %s", (username,))
+        if cu.fetchone():
+            print("⚠️ Username already exists. Choose a different username.")
+            return
+        
+        # Insert new admin into database
+        query = "INSERT INTO admin_data (username, password) VALUES (%s, %s)"
+        cu.execute(query, (username, password))
+        db.commit()
+        
+        print(f"\n✅ New admin account created successfully with username: {username}\n")
+
+    except mysql.connector.Error as err:
         print(f"Database error: {err}")
     finally:
         db.close()
