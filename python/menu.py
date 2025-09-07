@@ -66,9 +66,10 @@ def adminMenu():     #adminmenu
     [2]     VIEW FEEDBACK
     [3]     ADD ACCOUNT HOLDER
     [4]     NEW ADMIN ACCOUNT
-    [5]     LOAN DEFAULTERS
-    [6]     UPDATE ACCOUNT DETAILS
-    [7]     DELETE ACCOUNT (Permanent)
+    [5]     APPROVE LOAN
+    [6]     LOAN DEFAULTERS
+    [7]     UPDATE ACCOUNT DETAILS
+    [8]     DELETE ACCOUNT (Permanent)
     _____________________________________________
     
     [0] 	EXIT

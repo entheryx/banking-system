@@ -54,7 +54,7 @@ def user_transactions():
             add_transaction(acct_no, "WITHDRAW", amt)
             update_balance(acct_no, amt, "WITHDRAW")
         else:
-            print("❌ Insufficient Balance!")
+            print("Insufficient Balance!")
 
     elif choice == 3:  # Transfer
         to_acct = int(input("Enter recipient account no: "))
@@ -64,9 +64,9 @@ def user_transactions():
             update_balance(acct_no, amt, "WITHDRAW")
             add_transaction(to_acct, "TRANSFER_IN", amt)
             update_balance(to_acct, amt, "DEPOSIT")
-            print(f"✅ Transferred {amt} from {acct_no} to {to_acct}")
+            print(f"Transferred {amt} from {acct_no} to {to_acct}")
         else:
-            print("❌ Insufficient Balance!")
+            print("Insufficient Balance!")
     else:
         print("Invalid Choice!")
 
@@ -96,18 +96,18 @@ def admin_view_transactions():
         today = date.today()
         query = "SELECT * FROM transaction WHERE transaction_date = %s"
         cursor.execute(query, (today,))
-        print(f"\n📅 Daily Report for {today}:")
+        print(f"\n Daily Report for {today}:")
     elif choice == 2:
         month = int(input("Enter month (1-12): "))
         year = int(input("Enter year (YYYY): "))
         query = """SELECT * FROM transaction 
                    WHERE MONTH(transaction_date) = %s AND YEAR(transaction_date) = %s"""
         cursor.execute(query, (month, year))
-        print(f"\n📅 Monthly Report for {month}/{year}:")
+        print(f"\n Monthly Report for {month}/{year}:")
     else:
         query = "SELECT * FROM transaction ORDER BY transaction_date DESC"
         cursor.execute(query)
-        print("\n📜 Full Report:")
+        print("\n Full Report:")
 
     records = cursor.fetchall()
     for row in records:
@@ -157,7 +157,7 @@ def get_transactions_by_account(acct_no=None):
     cursor.execute(query, (acct_no,))
     records = cursor.fetchall()
 
-    print(f"\n📜 Transactions for Account {acct_no}:")
+    print(f"\n Transactions for Account {acct_no}:")
     for row in records:
         print(f"ID: {row[0]}, Type: {row[2]}, Amount: {row[3]}, Date: {row[4]}")
 

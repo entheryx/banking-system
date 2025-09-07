@@ -10,6 +10,8 @@ import admin
 import update
 import feedback
 import transactions
+import loan
+
 
 choice = menu.mainMenu()  # call it once
 
@@ -19,7 +21,7 @@ while (choice==1 or choice==2 or choice==3 or choice==4):
             case 1:
                 user.viewData()
             case 2:
-                user.viewLoanStatus()
+                loan.viewLoan()
             case 3:
                 transactions.balance()
             case 4:
@@ -30,6 +32,25 @@ while (choice==1 or choice==2 or choice==3 or choice==4):
                 update.phnum()
             case 7:
                 update.address()   
+            case 8:
+                print("[1] Apply Loan\n[2] View Loan Details\n[3] Check Loan Status")
+                try:
+                    sub = int(input("Enter choice: "))
+                    acct_no = int(input("Enter your account number: "))
+                    if sub == 1:
+                     amt = float(input("Loan amount: "))
+                     tenure = int(input("Tenure (months): "))
+                     loan.applyLoan(acct_no, amt, tenure)
+                    elif sub == 2:
+                     loan.viewLoan(acct_no)
+                    elif sub == 3:
+                        loan.checkStatus(acct_no)
+                    else:
+                        print("Invalid loan option.")
+                except ValueError:
+                    print("Invalid input.")
+
+                
             case 10:
                 transactions.user_transactions()
             case 11:
@@ -54,9 +75,9 @@ while (choice==1 or choice==2 or choice==3 or choice==4):
                 case 4:
                     admin.newAdmin()
                 case 5:
-                    pass
+                    admin.approveLoan()
                 case 6:
-                    pass
+                    loan.listDefaulters()
                 case 7:
                     pass
                 case 11:

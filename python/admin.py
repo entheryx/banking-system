@@ -19,10 +19,10 @@ def auth(): #when the admin username & password is verified
         result = cursor.fetchone()
         
         if result:
-            print("\n✅ Admin Login Successful!\n")
+            print("\n Admin Login Successful!\n")
             return True
         else:
-            print("\n❌ Invalid credentials. Access Denied.\n")
+            print("\n Invalid credentials. Access Denied.\n")
             return False
             
     except con.mysql.connector.Error as err:
@@ -65,7 +65,7 @@ def viewAll():
         query = "SELECT * FROM accHolder"
         cu.execute(query)
         while True:
-            data = cu.fetchone()  # Fetch one record
+            data = cu.fetchone() 
             if data is not None:
                 print(data)
             else: 
@@ -90,7 +90,7 @@ def newAdmin():
         # Check if username already exists
         cu.execute("SELECT * FROM admin_data WHERE username = %s", (username,))
         if cu.fetchone():
-            print("⚠️ Username already exists. Choose a different username.")
+            print(" Username already exists. Choose a different username.")
             return
         
         # Insert new admin into database
@@ -98,9 +98,32 @@ def newAdmin():
         cu.execute(query, (username, password))
         db.commit()
         
-        print(f"\n✅ New admin account created successfully with username: {username}\n")
+        print(f"\n New admin account created successfully with username: {username}\n")
 
-    except mysql.connector.Error as err:
+    except con.Error as err:
+        print(f"Database error: {err}")
+    finally:
+        db.close()
+
+def approveLoan():
+    """For admins to approve pending loans"""
+    db = con.connect()
+    if not db: return
+    cu = db.cursor()
+    try:
+        loan_id = int(input("Enter Loan ID to approve: "))
+        query = "UPDATE Loans SET status = 'ACTIVE' WHERE loan_id = %s AND status = 'PENDING'"
+        cu.execute(query, (loan_id,))
+        db.commit()
+
+        if cu.rowcount > 0:
+            print(f"Loan {loan_id} approved successfully ")
+        else:
+            print("No pending loan found with that ID ")
+
+    except ValueError:
+        print("Invalid input for loan ID.")
+    except con.Error as err:
         print(f"Database error: {err}")
     finally:
         db.close()
