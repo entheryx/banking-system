@@ -77,8 +77,8 @@ banking-system/
 1. **acct_holder** – Stores account holder information
 2. **admin_data** – Stores admin credentials
 3. **loan_acct** – Stores detailed loan information per account
-4. **feedback** – Creates & stores user feedback
-5. **transaction** – To store transaction functions - withdraw, deposit, history
+4. **feedback** – Stores user feedbacks
+5. **transaction** – To store transaction logs
 
 ---
 
