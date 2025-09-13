@@ -38,14 +38,47 @@ The system simulates core functionalities of a banking environment, enabling bot
 
 ---
 
+### 💡 Transaction System
+- Ensures atomicity and consistency  
+- Logs every transaction in the database with timestamps
+
+### 🗄️ Database Integration
+- Uses **MySQL** for storing user accounts, transactions, loans, and feedback  
+- Enforces strong **foreign key constraints** to maintain data integrity
+
+---
+## 📁 Folder Structure
+
+```plaintext
+banking-system/
+├── .gitignore
+├── main.py                 # Main entry point of the application
+├── README.md               # Project overview and documentation
+├── requirements.txt        # Python dependencies
+├── python/                 # Core logic of the application
+│   ├── admin.py            # Admin-related functionalities
+│   ├── dbConnect.py        # MySQL connection handling
+│   ├── feedback.py         # Feedback processing functions
+│   ├── loan.py             # Loan management logic
+│   ├── menu.py             # Interactive command-line menu
+│   ├── transactions.py     # Deposit, withdrawal, and transfer logic
+│   ├── update.py           # User account info update functions
+│   └── user.py             # User-related functionalities
+├── sql/                    # Database schema and setup
+│   └── schema.sql          # SQL schema setup script
+├── .vscode/                # VSCode configuration files
+│   └── settings.json
+```
+---
+
 ## 🧱 Database Structure
 
 ### Tables:
 1. **acct_holder** – Stores account holder information
 2. **admin_data** – Stores admin credentials
 3. **loan_acct** – Stores detailed loan information per account
-4. **feedback** – Stores user feedback
-5. **transaction** – (Optional) To store transaction history
+4. **feedback** – Creates & stores user feedback
+5. **transaction** – To store transaction functions - withdraw, deposit, history
 
 ---
 
