@@ -21,7 +21,8 @@ if choice == 1:
         case 1:
             user.viewData()
         case 2:
-            loan.viewLoan()
+            acct_no = int(input("Enter your account number: "))
+            loan.viewLoan(acct_no)
         case 3:
             transactions.balance()
         case 4:
