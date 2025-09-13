@@ -1,5 +1,7 @@
 import dbConnect as con
+import mysql.connector
 import menu
+from mysql.connector import Error
 
 
 def new():
@@ -17,8 +19,8 @@ def new():
         print("Thank you for your feedback!")
     except ValueError:
         print("Invalid input for account number.")
-    except con.Error as err:
-        print(f"Database error: {err}")
+    except mysql.connector.Error as err:
+        print(f"Database error: Account Number may not exist!!")
     finally:
         db.close()
     

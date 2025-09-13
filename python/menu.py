@@ -1,5 +1,6 @@
 #making the main menu for banking-system
 
+import update
 #=====================================================
 #                   MAIN MENU
 #=====================================================
@@ -16,7 +17,7 @@ def mainMenu(): #mainmenu
     [2]     ADMIN DASHBOARD
     _____________________________________________
     
-    [3] 	FEEDBACK
+    [3] 	NEW FEEDBACK
     [4] 	CUSTOMER SUPPORT / HELP DESK ☎️ 
     [0] 	EXIT
 ''')
@@ -40,10 +41,9 @@ def userMenu():     #usermenu
     [6] 	UPDATE PHONE NUMBER
     [7] 	UPDATE ADDRESS
     [8] 	LOAN SERVICES (Apply / EMI / Check Status)
-    [9] 	CHANGE PASSWORD / RESET PIN
+    [9] 	CLOSE ACCOUNT
     [10] 	TRANSACTIONS (Deposit, Withdraw, Transfer)
     [11]    TRANSACTION HISTROY
-    [12]    CLOSE ACCOUNT
 
     _____________________________________________
     
@@ -81,3 +81,27 @@ def adminMenu():     #adminmenu
     except ValueError:
         print("Invalid input, please enter a number.")
         return -1
+    
+def upgd():
+    print(''' 
+    ------------------UPDATE MENU--------------------
+    [1] 	UPDATE NAME
+    [2] 	UPDATE EMAIL
+    [3] 	UPDATE PHONE NUMBER
+    [4] 	UPDATE ADDRESS
+    ''')
+    try:
+        n = int(input("Choose a menu option: "))
+    except ValueError:
+        print("Invalid input, please enter a number.")
+        
+    match n:
+        case 1:
+            update.name()
+        case 2:
+            update.email()
+        case 3:
+            update.phnum()
+        case 4:
+            update.address() 
+

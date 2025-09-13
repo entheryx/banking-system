@@ -127,3 +127,31 @@ def approveLoan():
         print(f"Database error: {err}")
     finally:
         db.close()
+
+def deleteAccount():
+    #permanent delete account
+    db = con.connect()
+    if not db: 
+        return
+    cu = db.cursor()
+    try:
+        acct_no = int(input("Enter the account number to delete: "))
+        confirm = input(f"Are you sure you want to permanently delete account {acct_no}? (y/N): ").strip().lower()
+        if confirm != "y":
+            print("Deletion cancelled.")
+            return
+
+        query = "DELETE FROM accHolder WHERE acct_no = %s"
+        cu.execute(query, (acct_no,))
+        db.commit()
+
+        if cu.rowcount > 0:
+            print(f"Account {acct_no} permanently deleted by admin.")
+        else:
+            print("No account found with that number.")
+    except ValueError:
+        print("Invalid input. Please enter a numeric account number.")
+    except con.Error as err:
+        print(f"Database error: {err}")
+    finally:
+        db.close()
