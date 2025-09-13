@@ -18,8 +18,10 @@ def applyLoan(acct_no, loan_amount, tenure_months):
     print(f"Loan request submitted. EMI = {emi:.2f}")
     db.close()
 
-def viewLoan(acct_no):
+def viewLoan(acct_no=None):
     """View all loans for a user"""
+    if acct_no is None:
+        acct_no=int(input("Enter account number: "))
     db = con.connect()
     if not db: return
     cu = db.cursor()
