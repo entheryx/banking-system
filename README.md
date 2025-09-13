@@ -116,6 +116,10 @@ db = con.connect(
 ```bash
 python main.py
 ```
+or just run the file: 
+```bash
+run.bat
+```
 
 ---
 
