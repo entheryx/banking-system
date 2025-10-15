@@ -12,14 +12,14 @@ def balance():
     cu = db.cursor()
     try:
         acct_no = int(input("Enter the account number: "))
-        query = "SELECT * FROM accHolder WHERE acct_no = %s"
+        query = "SELECT acct_no, holder_name, initial_balance FROM accHolder WHERE acct_no = %s"
         cu.execute(query, (acct_no,))
         data = cu.fetchone()
         if data:
             print("\n*************** BALANCE ENQUIRY ***************")
             print("Account number: ", data[0])
             print("Name of account holder: ", data[1])
-            print("Balance: ", data[5])  # adjust if your column is not index 5
+            print("Balance: ", data[2])
             print("*********************************************\n")
         else:
             print("Account not found.")
@@ -133,7 +133,7 @@ def add_transaction(acct_no=None, transaction_type=None, amount=None):
     cursor = db.cursor()
 
     query = """
-        INSERT INTO transaction (acct_no, transaction_type, amount, transaction_date)
+        INSERT INTO transactions (acct_no, transaction_type, amount, transaction_date)
         VALUES (%s, %s, %s, %s)
     """
     values = (acct_no, transaction_type, amount, date.today())
@@ -153,7 +153,7 @@ def get_transactions_by_account(acct_no=None):
         return
     cursor = db.cursor()
 
-    query = "SELECT * FROM transaction WHERE acct_no = %s ORDER BY transaction_date DESC"
+    query = "SELECT * FROM transactions WHERE acct_no = %s ORDER BY transaction_date DESC"
     cursor.execute(query, (acct_no,))
     records = cursor.fetchall()
 

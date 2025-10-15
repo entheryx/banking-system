@@ -4,8 +4,6 @@ import mysql.connector as con
 def connect():
     """Establishes and returns a database connection."""
     try:
-        # IMPORTANT: Replace 'your_password' with your actual MySQL root password.
-        # Ensure the 'bank_management_system' database exists.
         db = con.connect(
             host="localhost",
             user="root",

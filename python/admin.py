@@ -45,8 +45,8 @@ def addData():
         balance = float(input("Enter the initial balance: "))
         loan_taken = input("Whether loan taken (yes/no): ")
         
-        query = "INSERT INTO acct_holder VALUES ({}, '{}', '{}', '{}', '{}', {}, '{}')".format(acct_no, name, phone, email, address, balance, loan_taken)
-        cu.execute(query)
+        query = "INSERT INTO accHolder VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        cu.execute(query, (acct_no, name, phone, email, address, balance, loan_taken))
         db.commit()
         print(f"Successfully new account was added with A/C No: {acct_no}")
     except ValueError:
@@ -57,19 +57,27 @@ def addData():
         db.close()
 
 def viewAll():
-    """Displays account holder's data based on account number."""
     db = con.connect()
+    if not db: return
     cu = db.cursor()
-    data="54"
     try:
-        query = "SELECT * FROM accHolder"
+        query = "SELECT acct_no, holder_name, phone_no, email, address, initial_balance, loan_taken FROM accHolder"
         cu.execute(query)
-        while True:
-            data = cu.fetchone() 
-            if data is not None:
-                print(data)
-            else: 
-                break
+        data = cu.fetchall()
+        if data:
+            print("\n*************** ALL ACCOUNTS ***************")
+            for row in data:
+                print(f"Account Number: {row[0]}")
+                print(f"Name: {row[1]}")
+                print(f"Phone: {row[2]}")
+                print(f"Email: {row[3]}")
+                print(f"Address: {row[4]}")
+                print(f"Balance: {row[5]}")
+                print(f"Loan Taken: {row[6]}")
+                print("-----------------------------------------")
+            print("********************************************\n")
+        else:
+            print("No accounts found.")
     except con.Error as err:
         print(f"Database error: {err}")
     finally:

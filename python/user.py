@@ -43,12 +43,10 @@ def closeAccount():
             print("Account closure cancelled.")
             return
 
-        #t1
         # Delete all feedback linked to this account
         cu.execute("DELETE FROM feedback WHERE acct_no=%s", (acct_no,))
 
         cu.execute("DELETE FROM loan_acct WHERE acct_no=%s", (acct_no,))
-        # Add other child tables if any, like transactions
         cu.execute("DELETE FROM transaction WHERE acct_no=%s", (acct_no,))
         db.commit()
 
