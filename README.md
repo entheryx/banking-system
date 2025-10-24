@@ -109,9 +109,13 @@ db = con.connect(
 )
 ```
 
-### 5️⃣ Run the Application
+### 4️⃣ Run the Application
 ```bash
-python menu.py
+python main.py
+```
+or just run the file: 
+```bash
+run.bat
 ```
 
 ---
@@ -130,6 +134,28 @@ User/Admin
                          dbConnect.py  →  MySQL Database (banking_system)
 ```
 
+---
+
+## 🎯 How to Use
+
+### 👨‍💻 User Flow
+1. Run the program.
+2. Select **User** from the main menu.
+3. Choose desired action:
+    - View Account
+    - Update Profile Details
+    - Provide Feedback
+    - Check Loan Status
+
+### 💼 Admin Flow
+1. Run the program.
+2. Select **Admin** from the main menu.
+3. Authenticate with username and password (default: `admin` / `password123`).
+4. Perform tasks:
+    - Add new account or loan data
+    - Update loan statuses
+    - View defaulters and feedback
+  
 ---
 
 ## 🧪 Sample Data
