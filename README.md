@@ -1,53 +1,45 @@
+# 🏦 Banking System Project
 
-# Banking System Project
+![Python](https://img.shields.io/badge/Python-3.13%2B-blue?logo=python)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?logo=mysql)
+![License](https://img.shields.io/badge/License-Educational-green)
 
-## 📚 Overview
+## 📘 Overview
 
-This **Banking System Project** is a comprehensive Python-based application integrated with MySQL for database management. It is designed as a Class 12 Computer Science project to demonstrate fundamental concepts of backend programming, database handling, and real-world application development.  
-The system simulates core functionalities of a banking environment, enabling both **Admin** and **User** operations.
+The **Banking System Project** is a fully functional Python–MySQL application designed for **Class 12 CBSE Computer Science** practicals and real-world learning of backend database systems.  
+It simulates essential banking operations such as **account management, transactions, loan processing, and feedback handling**, with separate interfaces for **Admin** and **User**.  
 
----
-
-## 🏦 Features
-
-### ✅ User Features
-- View account details
-- Update personal information:
-    - Name
-    - Email
-    - Phone Number
-    - Address
-- Submit feedback
-- View loan status
-
-### ✅ Admin Features
-- Add new account holders
-- Add new loan accounts for existing users
-- Update loan status
-- View loan defaulters
-- View user feedback
-- View detailed loan accounts
+Built using **modular Python scripts** and **MySQL Connector**, this project demonstrates database-driven programming, CRUD operations, and authentication logic in a structured, scalable way.
 
 ---
 
-## ⚙️ Technologies Used
+## 🚀 Key Features
 
-- **Python** – Backend development language
-- **MySQL** – Relational database for storing account, loan, feedback, and transaction data
-- **mysql-connector-python** – Python library for MySQL connectivity
+### 👨‍💻 User Functionalities
+- View account details  
+- Update personal information (Name, Email, Phone, Address)  
+- Deposit, Withdraw, and Transfer funds  
+- Apply for and view loan status  
+- Submit feedback  
+
+### 🧑‍💼 Admin Functionalities
+- Login authentication for administrators  
+- Add, view, and delete account holders  
+- Approve or manage loan applications  
+- View all transactions and defaulter lists  
+- Access and review user feedback  
 
 ---
 
-### 💡 Transaction System
-- Ensures atomicity and consistency  
-- Logs every transaction in the database with timestamps
-
-### 🗄️ Database Integration
-- Uses **MySQL** for storing user accounts, transactions, loans, and feedback  
-- Enforces strong **foreign key constraints** to maintain data integrity
+## 🧠 Technologies Used
+- **Python 3.13** — Backend programming  
+- **MySQL 8.0** — Relational database for persistent data  
+- **mysql-connector-python** — For database connectivity  
+- **Command Line Interface (CLI)** — For interaction and testing  
 
 ---
-## 📁 Folder Structure
+
+## 🗃️ Project Structure
 
 ```plaintext
 banking-system/
@@ -71,116 +63,117 @@ banking-system/
 ```
 ---
 
-## 🧱 Database Structure
+## 🧱 Database Schema
 
 ### Tables:
-1. **acct_holder** – Stores account holder information
-2. **admin_data** – Stores admin credentials
-3. **loan_acct** – Stores detailed loan information per account
-4. **feedback** – Stores user feedbacks
-5. **transaction** – To store transaction logs
+| Table Name | Description |
+|-------------|-------------|
+| `accHolder` | Stores account holder details |
+| `admin_data` | Contains admin login credentials |
+| `transactions` | Stores deposit, withdrawal, and transfer history |
+| `Loans` | Stores all loan-related information |
+| `feedback` | Stores user feedback and suggestions |
+
+Each table is connected via **foreign key constraints** ensuring relational integrity.
 
 ---
 
-## 🚀 Installation & Setup Guide
+## ⚙️ Installation & Setup Guide
 
-### 1️⃣ MySQL Database Setup
-- Ensure MySQL server is installed and running.
-- Execute the following script to create the database and necessary tables:
+### 1️⃣ Prerequisites
+- Install **MySQL Server** and **Python 3.13** on your system.  
+- Ensure MySQL service is running.  
 
+### 2️⃣ Database Setup
+Run the provided SQL script:
 ```sql
-CREATE DATABASE IF NOT EXISTS bank_management_system;
-USE bank_management_system;
+CREATE DATABASE IF NOT EXISTS banking_system;
+USE banking_system;
 
--- Tables and sample data as provided in the project files
+-- Execute contents of schema.sql provided in the project folder
 ```
 
-### 2️⃣ Python Dependencies
-Install required Python library:
+### 3️⃣ Install Python Dependencies
 ```bash
 pip install mysql-connector-python
 ```
 
-### 3️⃣ Configuration
-- Modify the database connection function in your Python code:
+### 4️⃣ Configure Database Connection
+Edit `dbConnect.py` with your local credentials:
 ```python
 db = con.connect(
     host="localhost",
     user="root",
-    password="your_password",  # Replace with your MySQL password
-    database="bank_management_system"
+    password="your_password",
+    database="banking_system"
 )
 ```
 
-### 4️⃣ Run the Application
+### 5️⃣ Run the Application
 ```bash
-python main.py
-```
-or just run the file: 
-```bash
-run.bat
+python menu.py
 ```
 
 ---
 
-## 🎯 How to Use
+## 🧭 Program Flow
 
-### 👨‍💻 User Flow
-1. Run the program.
-2. Select **User** from the main menu.
-3. Choose desired action:
-    - View Account
-    - Update Profile Details
-    - Provide Feedback
-    - Check Loan Status
-
-### 🧑‍💼 Admin Flow
-1. Run the program.
-2. Select **Admin** from the main menu.
-3. Authenticate with username and password (default: `admin` / `password123`).
-4. Perform tasks:
-    - Add new account or loan data
-    - Update loan statuses
-    - View defaulters and feedback
+```plaintext
+User/Admin
+   │
+   ▼
+ menu.py
+   ├── userMenu() ───────> users.py, update.py, transactions.py, loan.py, feedback.py
+   └── adminMenu() ──────> admin.py, feedback.py, loan.py
+                             │
+                             ▼
+                         dbConnect.py  →  MySQL Database (banking_system)
+```
 
 ---
 
-## 📊 Sample Data Provided
-- Default admin credentials: `admin` / `password123`
-- Sample users with accounts, loans, and feedback for testing.
+## 🧪 Sample Data
+- Default admin credentials:  
+  **Username:** `admin`  
+  **Password:** `password123`
+- Preloaded sample users, transactions, and loan records are included in `schema.sql`.
 
 ---
 
-## ⚡ Future Enhancements
-- Implement GUI using frameworks like Tkinter or PyQt
-- Enhance security: Use hashed passwords for admin login
-- Add transaction history management
-- Provide advanced search and reporting features
-- Enable user login with passwords
+## 🌟 Future Enhancements
+- Implement GUI using **Tkinter** or **PyQt**  
+- Add **user authentication system** with passwords  
+- Use **password hashing** for secure admin login  
+- Introduce **advanced analytics and reporting dashboard**  
+- Enable **email notifications** for transactions and loan approvals  
 
 ---
 
-## 🎓 Project Purpose
-
-This project serves as a practical demonstration of:
-- Database CRUD operations
-- User authentication
-- Menu-driven console applications
-- Separation of admin and user privileges
+## 🎓 Educational Objective
+This project demonstrates:
+- Database CRUD operations  
+- Menu-driven programming in Python  
+- Use of MySQL connector for backend integration  
+- Modular programming and function-level abstraction  
+- Real-world simulation of a banking management system  
 
 ---
 
 ## 📞 Contact
-
 For queries, feedback, or contributions:
 - GitHub: https://github.com/entheryx
 - GitHub: https://github.com/Aurelyx-19
 
 ---
 
-## 📜 License
+## 🪪 License
+This project is distributed for **educational and non-commercial use only.**  
+Feel free to fork, learn, and improve upon it.
 
-This project is provided as-is for educational purposes.
+---
+
+### 💬 “Code. Learn. Evolve.”  
+> Designed with ❤️ for Coding!
 
 ---
 
